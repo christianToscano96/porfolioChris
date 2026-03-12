@@ -68,7 +68,7 @@ const Features = () => {
     {
       id: 7,
       isComingSoon: true,
-      title: "Y nuevas funcionalidades pronto",
+      title: "Y nuevas funcionalidades pronto!!!",
     },
   ];
 
@@ -120,11 +120,6 @@ const Features = () => {
                     <div className="coming-soon-content">
                       <div className="coming-soon-sparkle">✨</div>
                       <h3 className="coming-soon-title">{feature.title}</h3>
-                      <div className="coming-soon-dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
                     </div>
                   </div>
                 ) : (

@@ -18,7 +18,7 @@ const Hero = () => {
 
         <div className="hero-greeting">
           <span className="wave">👋</span>
-          <h1 className="hero-hey">Hey, soy Christian</h1>
+          <h1 className="hero-hey">Hey, soy Christian!</h1>
         </div>
 
         <div className="hero-info">

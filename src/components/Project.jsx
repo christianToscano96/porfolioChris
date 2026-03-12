@@ -14,21 +14,31 @@ const Project = () => {
           </div>
           <div className="project-content">
             <p className="project-description">
-              Miilo App es una aplicación innovadora diseñada para mejorar la
-              productividad y gestión de tareas personales. Con una interfaz
-              intuitiva y moderna, permite a los usuarios organizar su día a día
-              de manera eficiente. La aplicación integra funcionalidades de
-              recordatorios, seguimiento de hábitos y análisis de productividad,
-              todo en una plataforma fácil de usar.
+              Miilo App es una aplicación diseñada para resolver una necesidad
+              que están teniendo mis amigos con su administración de sus
+              gimnasios ya que aquí no existen soluciones accesibles para poder
+              costearlos o no se adaptan a la necesidad de los mismos, asi que
+              ahi vi una oportunidad para poder cubrir esa demanda. Miilo es una
+              solución integral que facilita la gestión de gimnasios, ofreciendo
+              funcionalidades como check-in con QR, métricas en tiempo real,
+              gestión de clientes, reportes automatizados y subscripciones de
+              membresías a los gyms. Miilo App nace de la pasión que tengo de
+              crear aplicaciones y del deseo de facilitar la experiencia tanto
+              para administradores como para usuarios de los gimnasios. La App
+              aún esta en desarollo, con esto de las AI, en especial Claude me
+              facilito mucho el proceso de desarrollo, ya que a mi por si solo
+              me llevaria mucho tiempo jeje.
             </p>
             <div className="project-tech">
-              <span className="tech-tag">React</span>
+              <span className="tech-tag">React Native</span>
               <span className="tech-tag">Node.js</span>
               <span className="tech-tag">MongoDB</span>
-              <span className="tech-tag">Firebase</span>
+              <span className="tech-tag">Docker</span>
+              <span className="tech-tag">Zustand</span>
+              <span className="tech-tag">Tanstack</span>
             </div>
             <a
-              href="https://github.com/tu-usuario/miilo-app"
+              href="https://github.com/christianToscano96/gymApp"
               target="_blank"
               rel="noopener noreferrer"
               className="github-link"
