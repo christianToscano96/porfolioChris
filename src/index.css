@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 :root {
   font-family:
     "Inter",
@@ -34,6 +39,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Tema claro */
@@ -81,6 +87,34 @@ h6 {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Mejoras para móvil */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Previene zoom en iOS */
+  }
+
+  /* Mejora área táctil de botones */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mejora scroll en iOS */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
 }
 
 @media (prefers-color-scheme: light) {

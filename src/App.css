@@ -463,6 +463,13 @@
   cursor: pointer;
   border: none;
   font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn svg {
+  flex-shrink: 0;
 }
 
 .btn-primary {
@@ -530,12 +537,27 @@
   gap: 0.5rem;
   color: var(--text-secondary);
   animation: bounce 2s infinite;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 .scroll-indicator {
   width: 2px;
   height: 30px;
   background: linear-gradient(to bottom, var(--primary-color), transparent);
+  border-radius: 2px;
 }
 
 /* Sections */
@@ -1815,41 +1837,212 @@ section {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
+  .nav-container {
+    padding: 0 1.5rem;
+    gap: 1.5rem;
+  }
+
   .nav-menu {
-    gap: 1rem;
+    gap: 1.5rem;
     font-size: 0.9rem;
   }
 
+  .language-toggle,
+  .theme-toggle {
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
+  }
+
+  .hero-hey {
+    font-size: 2.5rem;
+  }
+
+  .hero-specialization {
+    font-size: 1.1rem;
+  }
+
+  .about-wrapper {
+    flex-direction: column;
+  }
+
+  .about-image-container {
+    order: -1;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .nav-menu {
+    gap: 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .nav-menu a {
+    white-space: nowrap;
+  }
+
+  .language-toggle,
   .theme-toggle {
     width: 40px;
     height: 40px;
     font-size: 1.2rem;
-    margin-left: 0.5rem;
+  }
+
+  .nav-actions {
+    gap: 0.4rem;
   }
 
   .hero {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
+    min-height: calc(100vh - 60px);
+    padding-top: 100px;
+    justify-content: flex-start;
   }
 
   .hero-content {
     text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-profile-header {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-profile-img {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+  }
+
+  .availability-badge {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
   }
 
   .hero-greeting {
     justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .wave {
+    font-size: 2.5rem;
+  }
+
+  .hero-hey {
+    font-size: 2rem;
+    line-height: 1.2;
   }
 
   .hero-info {
-    padding: 1.5rem;
+    padding: 1.25rem 1rem;
+    margin-bottom: 1.5rem;
+    gap: 0.75rem;
+  }
+
+  .info-badge {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .badge-accent {
+    font-size: 1.3rem;
   }
 
   .info-details {
     justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+
+  .hero-specialization {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
   }
 
   .hero-buttons {
     justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+  }
+
+  .hero-scroll {
+    margin-top: 2rem;
+  }
+
+  .hero-scroll span {
+    font-size: 0.85rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .timeline::before {
+    left: 0;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 3rem !important;
+    padding-right: 0 !important;
+  }
+
+  .timeline-marker {
+    left: -10px !important;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-marker,
+  .timeline-item:nth-child(even) .timeline-marker {
+    left: -10px;
+    right: auto;
+  }
+
+  .timeline-title {
+    font-size: 1.3rem;
+  }
+
+  .timeline-description {
+    font-size: 0.95rem;
   }
 
   .project-card {
@@ -1865,12 +2058,332 @@ section {
     padding-bottom: 1.5rem;
   }
 
+  .project-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .tech-tag {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .carousel-btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .carousel-btn-prev {
+    left: 10px;
+  }
+
+  .carousel-btn-next {
+    right: 10px;
+  }
+
+  .carousel-title {
+    font-size: 1.5rem;
+  }
+
+  .carousel-description {
+    font-size: 0.95rem;
+  }
+
+  .about-paragraph {
+    font-size: 0.95rem;
+  }
+
+  .section-title-left {
+    font-size: 2rem;
+  }
+
+  .github-cta-title {
+    font-size: 2rem;
+  }
+
+  .github-cta-description {
+    font-size: 1rem;
+  }
+
   section {
     padding: 3rem 1rem;
   }
 
   .stats {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 0.75rem;
+  }
+
+  .nav-menu {
+    gap: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .language-toggle,
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .hero {
+    padding: 1rem 0.75rem;
+    padding-top: 85px;
+  }
+
+  .hero-content {
+    padding: 0 0.25rem;
+  }
+
+  .hero-profile-header {
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-profile-img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .availability-badge {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.75rem;
+    gap: 0.4rem;
+  }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .hero-greeting {
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .wave {
+    font-size: 2rem;
+  }
+
+  .hero-hey {
+    font-size: 1.65rem;
+  }
+
+  .hero-info {
+    padding: 1rem 0.85rem;
+    margin-bottom: 1.25rem;
+    gap: 0.65rem;
+  }
+
+  .info-badge {
+    font-size: 0.9rem;
+  }
+
+  .badge-accent {
+    font-size: 1.15rem;
+  }
+
+  .info-details {
+    font-size: 0.8rem;
+    gap: 0.4rem;
+  }
+
+  .hero-specialization {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+    padding: 0 0.25rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-buttons {
+    gap: 0.65rem;
+  }
+
+  .hero-buttons a {
+    max-width: 100%;
+    padding: 0.8rem 1.15rem;
+  }
+
+  .hero-buttons svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+  }
+
+  .hero-scroll {
+    margin-top: 1.5rem;
+    transform: scale(0.9);
+  }
+
+  .hero-scroll span {
+    font-size: 0.75rem;
+  }
+
+  .scroll-indicator {
+    height: 25px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .section-title-left {
+    font-size: 1.75rem;
+  }
+
+  .timeline-content {
+    padding: 1.5rem;
+  }
+
+  .timeline-title {
+    font-size: 1.1rem;
+  }
+
+  .timeline-company {
+    font-size: 0.95rem;
+  }
+
+  .timeline-description {
+    font-size: 0.9rem;
+  }
+
+  .timeline-tech span {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .project-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .project-title-image {
+    max-width: 220px;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .github-link {
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-btn-prev {
+    left: 5px;
+  }
+
+  .carousel-btn-next {
+    right: 5px;
+  }
+
+  .carousel-title {
+    font-size: 1.3rem;
+  }
+
+  .carousel-description {
+    font-size: 0.85rem;
+  }
+
+  .carousel-tag {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .feature-number {
+    font-size: 3rem;
+  }
+
+  .github-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .github-cta-title {
+    font-size: 1.75rem;
+  }
+
+  .github-cta-description {
+    font-size: 0.9rem;
+  }
+
+  .github-cta-button {
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .about-paragraph {
+    font-size: 0.9rem;
+  }
+
+  .profile-image {
+    width: 280px;
+    height: 280px;
+  }
+
+  section {
+    padding: 2.5rem 0.75rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero {
+    padding: 1rem 0.5rem;
+    padding-top: 80px;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
+  .hero-profile-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .availability-badge {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .hero-hey {
+    font-size: 1.5rem;
+  }
+
+  .wave {
+    font-size: 1.75rem;
+  }
+
+  .info-badge {
+    font-size: 0.85rem;
+  }
+
+  .badge-accent {
+    font-size: 1.05rem;
+  }
+
+  .hero-specialization {
+    font-size: 0.9rem;
   }
 }
 
