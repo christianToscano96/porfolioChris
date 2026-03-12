@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const GitHubCTA = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="github-cta-section">
       <div className="container">
@@ -15,17 +19,15 @@ const GitHubCTA = () => {
             </svg>
             <div className="github-glow"></div>
           </div>
-          <h2 className="github-cta-title">Ve a mi GitHub</h2>
-          <p className="github-cta-description">
-            Explora más proyectos, contribuciones y código open source
-          </p>
+          <h2 className="github-cta-title">{t("githubCTA.title")}</h2>
+          <p className="github-cta-description">{t("githubCTA.description")}</p>
           <a
             href="https://github.com/christianToscano96"
             target="_blank"
             rel="noopener noreferrer"
             className="github-cta-button"
           >
-            <span>Visitar GitHub</span>
+            <span>{t("githubCTA.button")}</span>
             <svg
               width="20"
               height="20"

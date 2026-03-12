@@ -1,6 +1,9 @@
 import miiloTitleImg from "../assets/miilo_titlepng.png";
+import { useTranslation } from "react-i18next";
 
 const Project = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="proyecto" className="project-section">
       <div className="container">
@@ -13,22 +16,7 @@ const Project = () => {
             />
           </div>
           <div className="project-content">
-            <p className="project-description">
-              Miilo App es una aplicación diseñada para resolver una necesidad
-              que están teniendo mis amigos con su administración de sus
-              gimnasios ya que aquí no existen soluciones accesibles para poder
-              costearlos o no se adaptan a la necesidad de los mismos, asi que
-              ahi vi una oportunidad para poder cubrir esa demanda. Miilo es una
-              solución integral que facilita la gestión de gimnasios, ofreciendo
-              funcionalidades como check-in con QR, métricas en tiempo real,
-              gestión de clientes, reportes automatizados y subscripciones de
-              membresías a los gyms. Miilo App nace de la pasión que tengo de
-              crear aplicaciones y del deseo de facilitar la experiencia tanto
-              para administradores como para usuarios de los gimnasios. La App
-              aún esta en desarollo, con esto de las AI, en especial Claude me
-              facilito mucho el proceso de desarrollo, ya que a mi por si solo
-              me llevaria mucho tiempo jeje.
-            </p>
+            <p className="project-description">{t("project.description")}</p>
             <div className="project-tech">
               <span className="tech-tag">React Native</span>
               <span className="tech-tag">Node.js</span>
@@ -43,7 +31,7 @@ const Project = () => {
               rel="noopener noreferrer"
               className="github-link"
             >
-              <span>Ver en GitHub</span>
+              <span>{t("project.viewOnGithub")}</span>
               <svg
                 width="24"
                 height="24"

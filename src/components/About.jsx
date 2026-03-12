@@ -1,6 +1,9 @@
 import profileImg from "../assets/yo_2.jpg";
+import { useTranslation, Trans } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation();
+
   const socialLinks = [
     {
       name: "GitHub",
@@ -23,39 +26,20 @@ const About = () => {
       <div className="container">
         <div className="about-wrapper fade-in">
           <div className="about-content-new">
-            <h2 className="section-title-left">Sobre Mí</h2>
+            <h2 className="section-title-left">{t("about.title")}</h2>
+            <p className="about-paragraph">{t("about.paragraph1")}</p>
+            <p className="about-paragraph">{t("about.paragraph2")}</p>
+            <p className="about-paragraph">{t("about.paragraph3")}</p>
             <p className="about-paragraph">
-              Soy un desarrollador apasionado por crear y aprender! Mi enfoque
-              se centra en el desarrollo de aplicaciones web y móviles, con un
-              fuerte interés en el frontend y el desarrollo mobile. Me encanta
-              explorar nuevas tecnologías y siempre estoy buscando formas de
-              mejorar mis habilidades y conocimientos en el campo del desarrollo
-              de software.
+              <Trans
+                i18nKey="about.paragraph4"
+                components={[
+                  <span className="highlight-text" key="0"></span>,
+                  <span className="highlight-text" key="1"></span>,
+                ]}
+              />
             </p>
-            <p className="about-paragraph">
-              En mi comienzo en la programación no fue constante, ya que por
-              diversas circunstancias lo dejaba y retomaba, hasta que realmente
-              se me dio la oportunidad de dedicarme de lleno a esta pasión.
-            </p>
-            <p className="about-paragraph">
-              Mi trayectoria en el desarrollo de software ha sido un viaje
-              constante de aprendizaje. Cada proyecto representa una oportunidad
-              para dominar nuevas tecnologías, perfeccionar mis habilidades y
-              expandir mi visión sobre lo que es posible crear con código.
-            </p>
-            <p className="about-paragraph">
-              Recientemente, he emprendido un nuevo desafío:{" "}
-              <span className="highlight-text">Miilo App</span>, una solución
-              innovadora dedicada a satisfacer las necesidades específicas de
-              los <span className="highlight-text">gimnasios de mi ciudad</span>
-              . Este proyecto nace de identificar una oportunidad real en el
-              mercado local y el deseo de facilitar la gestión y mejorar la
-              experiencia tanto para administradores como para usuarios de
-              centros fitness.
-            </p>{" "}
-            <p className="about-paragraph">
-              Saludos desde Jujuy - Argentina!!!
-            </p>
+            <p className="about-paragraph">{t("about.paragraph5")}</p>
           </div>
 
           <div className="about-image-container">

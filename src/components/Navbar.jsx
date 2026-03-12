@@ -1,6 +1,14 @@
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 const Navbar = ({ scrollY, theme, toggleTheme }) => {
+  const { t, i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "es" ? "en" : "es";
+    i18n.changeLanguage(newLang);
+  };
+
   return (
     <nav
       className="navbar"
@@ -16,26 +24,35 @@ const Navbar = ({ scrollY, theme, toggleTheme }) => {
       <div className="nav-container">
         <ul className="nav-menu">
           <li>
-            <a href="#inicio">Inicio</a>
+            <a href="#inicio">{t("nav.home")}</a>
           </li>
           <li>
-            <a href="#experiencia">Experiencia</a>
+            <a href="#experiencia">{t("nav.experience")}</a>
           </li>
 
           <li>
-            <a href="#proyecto">Miilo App</a>
+            <a href="#proyecto">{t("nav.project")}</a>
           </li>
           <li>
-            <a href="#historia">Sobre Mí</a>
+            <a href="#historia">{t("nav.about")}</a>
           </li>
         </ul>
-        <button
-          onClick={toggleTheme}
-          className="theme-toggle"
-          aria-label="Toggle theme"
-        >
-          {theme === "dark" ? "☀️" : "🌙"}
-        </button>
+        <div className="nav-actions">
+          <button
+            onClick={toggleLanguage}
+            className="language-toggle"
+            aria-label="Toggle language"
+          >
+            {i18n.language === "es" ? "🇺🇸" : "🇦🇷"}
+          </button>
+          <button
+            onClick={toggleTheme}
+            className="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
+        </div>
       </div>
     </nav>
   );

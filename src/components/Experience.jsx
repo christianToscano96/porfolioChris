@@ -1,26 +1,27 @@
 import aptlyImg from "../assets/aptly.webp";
 import exoImg from "../assets/exo.png";
+import { useTranslation } from "react-i18next";
 
 const Experience = () => {
+  const { t } = useTranslation();
+
   const experiences = [
     {
       id: 1,
-      date: "jul. 2020 - feb. 2021 ",
-      title: "Full Stack Software Engineer & React Native",
-      company: "Exomindset - Argentina",
+      date: t("experience.exo.date"),
+      title: t("experience.exo.title"),
+      company: t("experience.exo.company"),
       logo: exoImg,
-      description:
-        "Mis primeros pasos como Jr Dev. Desarrollo de aplicaciones web y móviles para diversos clientes. Colaboración en equipos ágiles, implementación de nuevas funcionalidades y optimización de rendimiento en aplicaciones de alta concurrencia, aqui mi paso fue veloz!.",
+      description: t("experience.exo.description"),
       technologies: ["JavaScript", "React", "Angular", "React Native"],
     },
     {
       id: 2,
-      date: "feb. 2021 - mar. 2026 ",
-      title: "Software Developer",
-      company: "Aptly",
+      date: t("experience.aptly.date"),
+      title: t("experience.aptly.title"),
+      company: t("experience.aptly.company"),
       logo: aptlyImg,
-      description:
-        "Ingrese como Jr Dev. y fue mi gran experiencia en una startup, fueron como una familia para mi, estuve con ellos por mas de 5 años. Trabaje en el desarrollo y mantenimiento de la app web APTLY - CRM and Workflow Management for Property Teams. Implementando nuevos features, migración, mantenimiento y optimización de código ya existentes a React. También manteniendo diversos proyectos y web de Aptly.",
+      description: t("experience.aptly.description"),
       technologies: [
         "React",
         "Mongo",
@@ -34,12 +35,11 @@ const Experience = () => {
     },
     {
       id: 3,
-      date: "2026",
-      title: "Desarrollador Independiente",
-      company: "Freelance",
+      date: t("experience.freelance.date"),
+      title: t("experience.freelance.title"),
+      company: t("experience.freelance.company"),
       logo: null,
-      description:
-        "Desarrollo de Miilo App, una aplicación móvil para la gestión de gimnasios. Implementación de sistemas de check-in con QR, métricas en tiempo real, gestión de clientes y reportes automatizados.",
+      description: t("experience.freelance.description"),
       technologies: [
         "React Native",
         "Mongo",
@@ -54,7 +54,7 @@ const Experience = () => {
   return (
     <section id="experiencia" className="experience-section">
       <div className="container">
-        <h2 className="section-title fade-in">Experiencia Laboral</h2>
+        <h2 className="section-title fade-in">{t("experience.title")}</h2>
         <div className="timeline">
           {experiences.map((exp) => (
             <div key={exp.id} className="timeline-item fade-in">

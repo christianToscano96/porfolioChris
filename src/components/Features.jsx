@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import loginImg from "../assets/login.png";
 import dashboardImg from "../assets/dashboar.png";
 import metricasImg from "../assets/metricas.png";
@@ -7,60 +8,55 @@ import qrImg from "../assets/qr.png";
 import clienteImg from "../assets/cliente.png";
 
 const Features = () => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
 
   const features = [
     {
       id: 1,
-      title: "Autenticación Segura",
-      description:
-        "Sistema de autenticación robusto y seguro que protege la información de los usuarios. Incluye validación en tiempo real, recuperación de contraseña y autenticación de dos factores para máxima seguridad.",
+      title: t("features.feature1.title"),
+      description: t("features.feature1.description"),
       image: loginImg,
       alt: "Pantalla de Login de Miilo App",
       tags: ["JWT", "OAuth", "Encriptación"],
     },
     {
       id: 2,
-      title: "Dashboard Interactivo",
-      description:
-        "Panel de control intuitivo que muestra toda la información importante de un vistazo. Gráficos en tiempo real, acceso rápido a funciones principales y una interfaz diseñada para maximizar la productividad.",
+      title: t("features.feature2.title"),
+      description: t("features.feature2.description"),
       image: dashboardImg,
       alt: "Dashboard de Miilo App",
       tags: ["Real-time", "Responsive", "Intuitivo"],
     },
     {
       id: 3,
-      title: "Análisis de Métricas",
-      description:
-        "Visualización avanzada de datos y métricas clave. Gráficos dinámicos, análisis de tendencias y estadísticas detalladas para tomar decisiones informadas basadas en datos reales.",
+      title: t("features.feature3.title"),
+      description: t("features.feature3.description"),
       image: metricasImg,
       alt: "Panel de Métricas",
       tags: ["Analytics", "Charts", "Data Viz"],
     },
     {
       id: 4,
-      title: "Acceso con Código QR",
-      description:
-        "Sistema de acceso rápido y seguro mediante códigos QR. Facilita el check-in de usuarios, control de asistencia y validación de identidad de forma instantánea. Tecnología moderna para un acceso sin fricciones.",
+      title: t("features.feature4.title"),
+      description: t("features.feature4.description"),
       image: qrImg,
       alt: "Sistema de Acceso QR",
       tags: ["QR Scanner", "Instant Access", "Secure"],
     },
     {
       id: 5,
-      title: "Gestión de Clientes",
-      description:
-        "Sistema completo de administración de clientes con perfiles detallados, historial de actividades y seguimiento personalizado. Mantén toda la información organizada y accesible en un solo lugar para mejorar la relación con tus usuarios.",
+      title: t("features.feature5.title"),
+      description: t("features.feature5.description"),
       image: clienteImg,
       alt: "Gestión de Clientes",
       tags: ["CRM", "Profiles", "History Tracking"],
     },
     {
       id: 6,
-      title: "Reportes Detallados",
-      description:
-        "Generación automática de reportes completos y personalizables. Exporta datos en múltiples formatos, programa reportes periódicos y mantén un seguimiento detallado de todas las actividades.",
+      title: t("features.feature6.title"),
+      description: t("features.feature6.description"),
       image: reportesImg,
       alt: "Sistema de Reportes",
       tags: ["PDF Export", "Automated", "Customizable"],
@@ -68,7 +64,7 @@ const Features = () => {
     {
       id: 7,
       isComingSoon: true,
-      title: "Y nuevas funcionalidades pronto!!!",
+      title: t("features.comingSoon"),
     },
   ];
 
@@ -101,7 +97,7 @@ const Features = () => {
   return (
     <section id="galeria" className="features-section">
       <div className="container">
-        <h2 className="section-title fade-in">Características de Miilo</h2>
+        <h2 className="section-title fade-in">{t("features.title")}</h2>
 
         <div className="carousel-container">
           {/* Carousel Track */}
