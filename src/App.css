@@ -21,7 +21,8 @@
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 3rem;
   align-items: center;
 }
 
@@ -460,6 +461,36 @@
   transform: translateY(-2px);
 }
 
+.btn-linkedin {
+  background: #0a66c2;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(10, 102, 194, 0.3);
+}
+
+.btn-linkedin:hover {
+  background: #004182;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(10, 102, 194, 0.5);
+}
+
+.btn-github {
+  background: #24292e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(36, 41, 46, 0.3);
+}
+
+.btn-github:hover {
+  background: #0d1117;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(36, 41, 46, 0.5);
+}
+
 .hero-scroll {
   position: absolute;
   bottom: 2rem;
@@ -719,7 +750,7 @@ section {
 
 /* Project Section */
 .project-section {
-  padding: 5rem 2rem;
+  padding: 5rem 2rem 2rem 2rem;
 }
 
 .project-card {
@@ -797,80 +828,569 @@ section {
   transform: translateX(5px);
 }
 
-/* Features Section */
+/* Features Section - Carousel */
 .features-section {
-  background: transparent;
-  padding: 0;
+  background: var(--bg-secondary);
+  padding: 2rem 2rem 5rem 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.features-title-container {
-  background: var(--bg-dark);
-  padding: 5rem 2rem 3rem;
-  text-align: center;
+.carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding: 2rem 0;
 }
 
-.feature-wrapper {
-  padding: 5rem 2rem;
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  perspective: 1000px;
 }
 
-.feature-wrapper:nth-child(2),
-.feature-wrapper:nth-child(4),
-.feature-wrapper:nth-child(6) {
-  background: var(--bg-dark);
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8) translateY(50px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
 }
 
-.feature-wrapper:nth-child(3),
-.feature-wrapper:nth-child(5),
-.feature-wrapper:nth-child(7) {
-  background: var(--bg-card);
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+  z-index: 2;
 }
 
-.feature-item {
+.carousel-slide.prev {
+  transform: scale(0.9) translateX(-100px);
+}
+
+.carousel-slide.next {
+  transform: scale(0.9) translateX(100px);
+}
+
+.carousel-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
+  height: 100%;
   align-items: center;
-  opacity: 0;
-  transform: translateY(50px);
-  transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
-}
-
-.feature-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.feature-item.reverse {
-  direction: rtl;
-}
-
-.feature-item.reverse > * {
-  direction: ltr;
-}
-
-.feature-image {
-  border-radius: 15px;
+  background: var(--bg-primary);
+  border-radius: 24px;
+  padding: 3rem;
+  border: 1px solid rgba(106, 240, 141, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease;
+}
+
+.carousel-content::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(106, 240, 141, 0.05) 0%,
+    transparent 70%
+  );
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.carousel-image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
   max-width: 280px;
   margin: 0 auto;
 }
 
-.feature-image:hover {
-  transform: scale(1.05);
-}
-
-.feature-image img {
+.carousel-image {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  border-radius: 12px;
 }
 
-.feature-content h3 {
-  font-size: 2rem;
+.carousel-image-wrapper:hover .carousel-image {
+  transform: scale(1.05);
+}
+
+.carousel-info {
+  position: relative;
+  z-index: 1;
+}
+
+.feature-number {
+  font-size: 5rem;
+  font-weight: 900;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.carousel-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.carousel-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.carousel-tags {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.carousel-tag {
+  padding: 0.5rem 1.2rem;
+  background: rgba(106, 240, 141, 0.1);
+  border: 1px solid rgba(106, 240, 141, 0.3);
+  border-radius: 25px;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.carousel-tag:hover {
+  background: rgba(106, 240, 141, 0.2);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Coming Soon Slide */
+.carousel-coming-soon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  position: relative;
+}
+
+.coming-soon-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 4rem 2rem;
+  max-width: 700px;
+  position: relative;
+}
+
+.coming-soon-sparkle {
+  font-size: 6rem;
+  animation: sparkleFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(106, 240, 141, 0.4));
+}
+
+@keyframes sparkleFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg) scale(1.1);
+  }
+}
+
+.coming-soon-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color),
+    var(--primary-color)
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease infinite;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  text-align: center;
+  position: relative;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.coming-soon-dots {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.coming-soon-dots span {
+  width: 16px;
+  height: 16px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+.coming-soon-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.coming-soon-dots span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.coming-soon-dots span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(106, 240, 141, 0.1);
+  border: 2px solid rgba(106, 240, 141, 0.3);
+  color: var(--primary-color);
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.carousel-btn:hover {
+  background: rgba(106, 240, 141, 0.2);
+  border-color: var(--primary-color);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 20px rgba(106, 240, 141, 0.3);
+}
+
+.carousel-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-btn-prev {
+  left: -80px;
+}
+
+.carousel-btn-next {
+  right: -80px;
+}
+
+/* Indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 3;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(106, 240, 141, 0.2);
+  border: 2px solid rgba(106, 240, 141, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.indicator:hover {
+  background: rgba(106, 240, 141, 0.4);
+  transform: scale(1.2);
+}
+
+.indicator.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  width: 40px;
+  border-radius: 6px;
+}
+
+.carousel-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  transition: width 0.3s ease;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(106, 240, 141, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .carousel-btn-prev {
+    left: 10px;
+  }
+
+  .carousel-btn-next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 968px) {
+  .features-section {
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
+  }
+
+  .carousel-track {
+    height: auto;
+    min-height: 700px;
+  }
+
+  .carousel-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .carousel-image-wrapper {
+    max-width: 240px;
+  }
+
+  .carousel-info {
+    text-align: center;
+  }
+
+  .feature-number {
+    font-size: 3rem;
+  }
+
+  .carousel-title {
+    font-size: 2rem;
+  }
+
+  .carousel-description {
+    font-size: 1rem;
+  }
+
+  .carousel-tags {
+    justify-content: center;
+  }
+
+  .carousel-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .carousel-btn-prev {
+    left: 5px;
+  }
+
+  .carousel-btn-next {
+    right: 5px;
+  }
+
+  .coming-soon-sparkle {
+    font-size: 4rem;
+  }
+
+  .coming-soon-title {
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  }
+
+  .coming-soon-content {
+    padding: 3rem 1.5rem;
+  }
+
+  .coming-soon-dots span {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-track {
+    min-height: 800px;
+  }
+
+  .carousel-content {
+    padding: 1.5rem;
+  }
+
+  .carousel-image-wrapper {
+    max-width: 200px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .coming-soon-sparkle {
+    font-size: 3.5rem;
+  }
+
+  .coming-soon-title {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    padding: 0 1rem;
+  }
+
+  .coming-soon-content {
+    padding: 2.5rem 1rem;
+    gap: 2rem;
+  }
+
+  .coming-soon-dots span {
+    width: 12px;
+    height: 12px;
+  }
+
+  .github-cta-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .github-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .github-glow {
+    width: 100px;
+    height: 100px;
+  }
+
+  .github-cta-title {
+    font-size: 2rem;
+  }
+
+  .github-cta-description {
+    font-size: 1rem;
+  }
+
+  .github-cta-button {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* GitHub CTA Section */
+.github-cta-section {
+  padding: 6rem 2rem;
+  background:
+    radial-gradient(ellipse at top, rgba(106, 240, 141, 0.1), transparent),
+    radial-gradient(ellipse at bottom, rgba(74, 222, 170, 0.1), transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.github-cta-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.github-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.github-icon {
+  color: var(--primary-color);
+  filter: drop-shadow(0 0 20px rgba(106, 240, 141, 0.5));
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.github-icon-wrapper:hover .github-icon {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 30px rgba(106, 240, 141, 0.8));
+  color: var(--accent-color);
+}
+
+.github-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle,
+    rgba(106, 240, 141, 0.3),
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.github-cta-title {
+  font-size: 3rem;
+  font-weight: 800;
   margin-bottom: 1rem;
   background: linear-gradient(
     135deg,
@@ -880,48 +1400,68 @@ section {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: fadeInUp 0.8s ease-out;
 }
 
-.feature-content p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+.github-cta-description {
+  font-size: 1.2rem;
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
-.feature-tags {
-  display: flex;
+.github-cta-button {
+  display: inline-flex;
+  align-items: center;
   gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(106, 240, 141, 0.4);
+  animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
-.feature-tag {
-  padding: 0.4rem 1rem;
-  background: rgba(106, 240, 141, 0.1);
-  border: 1px solid rgba(106, 240, 141, 0.3);
-  border-radius: 20px;
-  font-size: 0.85rem;
-  color: var(--primary-color);
-  font-weight: 500;
+.github-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(106, 240, 141, 0.6);
 }
 
-@media (max-width: 968px) {
-  .features-title-container {
-    padding: 3rem 1.5rem 2rem;
-  }
+.github-cta-button svg {
+  transition: transform 0.3s ease;
+}
 
-  .feature-wrapper {
-    padding: 3rem 1.5rem;
-  }
+.github-cta-button:hover svg {
+  transform: translateX(5px);
+}
 
-  .feature-item {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+@keyframes iconFloat {
+  0%,
+  100% {
+    transform: translateY(0);
   }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
-  .feature-item.reverse {
-    direction: ltr;
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
   }
 }
 
