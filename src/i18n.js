@@ -151,7 +151,7 @@ const resources = {
         aptly: {
           date: "Feb. 2021 - Mar. 2026",
           title: "Software Developer",
-          company: "Aptly",
+          company: "Aptly - California, USA",
           description:
             "I joined as Jr Dev. and it was my great experience in a startup, they were like a family to me, I was with them for more than 5 years. I worked on the development and maintenance of the APTLY web app - CRM and Workflow Management for Property Teams. Implementing new features, migration, maintenance and optimization of existing code to React. Also maintaining various Aptly projects and websites.",
         },
