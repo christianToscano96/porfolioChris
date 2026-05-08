@@ -3,8 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Experience from "./components/Experience";
-import Project from "./components/Project";
-import Features from "./components/Features";
+import Projects from "./components/Projects";
 import GitHubCTA from "./components/GitHubCTA";
 import About from "./components/About";
 import Footer from "./components/Footer";
@@ -45,7 +44,7 @@ function App() {
     }, observerOptions);
 
     document
-      .querySelectorAll(".fade-in, .feature-item")
+      .querySelectorAll(".fade-in")
       .forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
@@ -56,8 +55,7 @@ function App() {
       <Navbar scrollY={scrollY} theme={theme} toggleTheme={toggleTheme} />
       <Hero />
       <Experience />
-      <Project />
-      <Features />
+      <Projects />
       <GitHubCTA />
       <About />
       <Footer />

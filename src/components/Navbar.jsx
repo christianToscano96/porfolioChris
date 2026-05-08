@@ -29,10 +29,6 @@ const Navbar = ({ scrollY, theme, toggleTheme }) => {
           <li>
             <a href="#experiencia">{t("nav.experience")}</a>
           </li>
-
-          <li>
-            <a href="#proyecto">{t("nav.project")}</a>
-          </li>
           <li>
             <a href="#historia">{t("nav.about")}</a>
           </li>

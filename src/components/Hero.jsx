@@ -46,16 +46,13 @@ const Hero = () => {
           />
         </p>
 
-        <div className="hero-buttons">
-          <a href="#proyecto" className="btn btn-primary">
-            {t("hero.viewProjects")}
-          </a>
-          <a
-            href="https://www.linkedin.com/in/christianit96/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-linkedin"
-          >
+         <div className="hero-buttons">
+           <a
+             href="https://www.linkedin.com/in/christianit96/"
+             target="_blank"
+             rel="noopener noreferrer"
+             className="btn btn-linkedin"
+           >
             <svg
               width="20"
               height="20"
