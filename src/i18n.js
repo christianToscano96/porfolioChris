@@ -32,13 +32,11 @@ const resources = {
           duration: "7 meses",
           title: "Full Stack & React Native Developer",
           company: "Exo Mindset",
-          location: "Córdoba, Argentina",
-          description:
-            "Desarrollé funcionalidades frontend y backend para proyectos de clientes, traduciendo requisitos de negocio en código listo para producción. Contribuí al desarrollo de aplicaciones móviles con React Native, entregando componentes UI e integraciones de APIs en plazo.",
+          location: "",
+          description: "",
           highlights: [
-            "Desarrollé y mantuve aplicaciones web y móviles para clientes diversos",
-            "Implementé integraciones de API en React Native, entregando features en tiempo y forma",
-            "Colaboré en equipos ágiles siguiendo metodologías Scrum",
+            "Entregué funcionalidades frontend y backend listas para producción en distintos proyectos de clientes, asegurando alineación con requisitos de negocio complejos",
+            "Aceleré la entrega de productos móviles construyendo componentes UI de alta fidelidad e integraciones de API robustas con React Native",
           ],
         },
         aptly: {
@@ -47,31 +45,15 @@ const resources = {
           title: "Frontend Engineer",
           company: "Aptly",
           location: "California, USA (Remote)",
-          description:
-            "Lideré la migración del core application de Meteor/Blaze a React.js, mejorando performance y mantenibilidad. Implementé nuevas features y librería de componentes reutilizables, reduciendo código duplicado en ~30%. También mantuve el sitio web con WordPress/Webflow y localicé el portal de alquileres al español.",
+          description: "",
           highlights: [
-            "Lideré migración de Meteor/Blaze a React.js, mejorando performance y mantenibilidad",
-            "Creé librería de componentes reutilizables, reduciendo código duplicado ~30%",
-            "Desarrollé y mantuve sitio web con WordPress + Webflow",
-            "Localicé completamente el portal de rentas (portal.getaptly.com) al español",
+            "Responsable de la migración técnica de la aplicación core de Meteor/Blaze a React.js, liderando el rediseño de una arquitectura monolítica a un modelo modular basado en componentes reutilizables, mejorando el rendimiento de renderizado y la mantenibilidad del código a largo plazo",
+            "Implementé la localización completa al español del portal de alquileres (portal.getaptly.com) usando React-i18next, incrementando el engagement de usuarios en mercados hispanohablantes, y mantuve la presencia web corporativa en WordPress y Webflow",
+            "Diseñé y construí funcionalidades end-to-end que abarcan diseño de esquemas en MongoDB, lógica de API e implementación de UI, asegurando integridad y consistencia de datos en todo el stack",
+            "Adopté flujos de desarrollo asistidos por IA usando Claude, implementando gentleman-ai como metodología de Spec-Driven Development (SDD)",
+            "Optimicé el rendimiento de la aplicación mediante code splitting, lazy loading de rutas/componentes y reducción de re-renders innecesarios, y lideré la adopción de un sistema de componentes (design system) consistente en todas las features",
+            "Participé en decisiones de producto y UX junto al equipo de diseño, incorporando buenas prácticas de accesibilidad (a11y) en los componentes construidos para ampliar la base de usuarios de la plataforma",
           ],
-        },
-        freelance: {
-          date: "mar. 2026 - Presente",
-          duration: "Actual",
-          title: "Freelance Full Stack Developer",
-          company: "Self-Employed",
-          location: "Jujuy, Argentina",
-          description:
-            "Desarrollo soluciones full-stack a medida, combinando React Native, Nest.js, Docker, TypeScript, MongoDB y pasarelas de pago. Unifico flujos de negocio en plataformas multi-venue y entrego ecommerce completos con checkout integrado.",
-          highlights: [
-            "Desarrollé app cross-platform React Native + Nest.js unificando gestión de gimnasio y nightclub con loyalty programs",
-            "Construí ecommerce Kioto Indu con Galio Pay, catálogo completo y flujo de checkout",
-            "Reducí overhead operativo del cliente centralizando 2 flujos de negocio en 1 plataforma",
-            "Ambos proyectos disponibles en christiantoscano.netlify.app",
-          ],
-          isCurrent: true,
-          portfolioUrl: "https://christiantoscano.netlify.app",
         },
       },
       githubCTA: {
@@ -82,19 +64,19 @@ const resources = {
       },
       projects: {
         title: "Proyectos Destacados",
-         gymNightclub: {
-           title: "Gym & Nightclub Unified Platform",
+         proxi: {
+           title: "Proxi Marketplace",
            description:
-             "Desarrollé una aplicación cross-platform en React Native + Nest.js que unifica la gestión de gimnasios y nightclubs para un mismo cliente. Implementé flujos de lealtad y descuentos centralizados entre ambos espacios, reduciendo la carga operativa. (En desarrollo)",
+             "Marketplace multi-rubro construido con Next.js, Node.js y PostgreSQL. Permite a comercios, emprendedores y prestadores de servicios crear su tienda, publicar productos y venderlos por categoría y ubicación, con búsqueda geolocalizada y gestión de catálogo. En producción.",
            githubUrl: "",
-           liveUrl: "",
+           liveUrl: "https://www.proximarket.com.ar/",
          },
          kioto: {
            title: "Kioto Indu Ecommerce",
            description:
              "Proyecto full stack que integra React.js (frontend), Node.js (backend), MongoDB (base de datos), Zustand (gestión de estado) y CI/CD. Plataforma ecommerce completa con catálogo de productos, carrito de compras y checkout con Galio Pay. Listo para producción.",
            githubUrl: "https://github.com/christianToscano96/kioto-indu",
-           liveUrl: "",
+           liveUrl: "https://kioto-ecomerce.vercel.app/",
          },
       },
       footer: {
@@ -131,13 +113,11 @@ const resources = {
           duration: "7 months",
           title: "Full Stack & React Native Developer",
           company: "Exo Mindset",
-          location: "Córdoba, Argentina",
-          description:
-            "Developed frontend and backend features for client projects, translating business requirements into production-ready code. Contributed to mobile app development using React Native, delivering UI components and API integrations on schedule.",
+          location: "",
+          description: "",
           highlights: [
-            "Developed and maintained web and mobile applications for diverse clients",
-            "Implemented API integrations in React Native, delivering features on time",
-            "Collaborated in agile teams following Scrum methodologies",
+            "Delivered production-ready frontend and backend features across a range of client projects, ensuring alignment with complex business requirements",
+            "Accelerated mobile product delivery by building high-fidelity UI components and robust API integrations with React Native",
           ],
         },
         aptly: {
@@ -146,31 +126,15 @@ const resources = {
           title: "Frontend Engineer",
           company: "Aptly",
           location: "California, USA (Remote)",
-          description:
-            "Led migration of core application from Meteor/Blaze to React.js, improving rendering performance and maintainability. Built reusable component library and implemented new product features, reducing duplicated code by ~30%. Maintained company website (WordPress/Webflow) and fully localized the rental portal to Spanish.",
+          description: "",
           highlights: [
-            "Led Meteor/Blaze → React.js migration, boosting performance and maintainability",
-            "Built reusable component library, cutting duplicate code by ~30%",
-            "Maintained company site with WordPress and Webflow",
-            "Fully localized rental portal (portal.getaptly.com) to Spanish",
+            "Responsible for the technical migration of the core application from Meteor/Blaze to React.js, leading the redesign from a monolithic architecture to a modular model based on reusable components, improving rendering performance and long-term codebase maintainability",
+            "Implemented full Spanish localization of the rental portal (portal.getaptly.com) using React-i18next, increasing user engagement in Spanish-speaking markets, and maintained the corporate web presence on WordPress and Webflow",
+            "Designed and built end-to-end features spanning MongoDB schema design, API logic, and UI implementation, ensuring data integrity and consistency across the full stack",
+            "Adopted AI-assisted development workflows using Claude, implementing gentleman-ai as a Spec-Driven Development (SDD) methodology",
+            "Optimized application performance through code splitting, route/component lazy loading, and reduction of unnecessary re-renders, and led the adoption of a consistent component (design) system across features",
+            "Took part in product and UX decisions alongside the design team, incorporating accessibility (a11y) best practices into the components built to broaden the platform's user base",
           ],
-        },
-        freelance: {
-          date: "Mar. 2026 – Present",
-          duration: "Current",
-          title: "Freelance Full Stack Developer",
-          company: "Self-Employed",
-          location: "Jujuy, Argentina",
-          description:
-            "Build custom full-stack solutions using React Native, Nest.js, Docker, TypeScript, MongoDB, and payment gateways. Unify multi-venue business workflows into single platforms; deliver complete ecommerce with integrated checkout.",
-          highlights: [
-            "Built cross-platform React Native + Nest.js app unifying gym & nightclub management with loyalty programs",
-            "Developed Kioto Indu ecommerce with Galio Pay, full catalog and checkout flow",
-            "Reduced client operational overhead by centralizing 2 business workflows into one platform",
-            "Both projects showcased at christiantoscano.netlify.app",
-          ],
-          isCurrent: true,
-          portfolioUrl: "https://christiantoscano.netlify.app",
         },
       },
       about: {
@@ -193,19 +157,19 @@ const resources = {
       },
       projects: {
         title: "Featured Projects",
-         gymNightclub: {
-           title: "Gym & Nightclub Unified Platform",
+         proxi: {
+           title: "Proxi Marketplace",
            description:
-             "Built a cross-platform app in React Native + Nest.js merging gym management and a nightclub for a single client, enabling unified customer loyalty and discount workflows across both venues. Architected with Docker, TypeScript, MongoDB, and payment integrations; reduced client operational overhead by centralizing two business workflows into one platform. (In development)",
+             "Multi-category marketplace built with Next.js, Node.js, and PostgreSQL. Lets stores, entrepreneurs, and service providers create a shop, list products, and sell by category and location, with geolocated search and catalog management. In production.",
            githubUrl: "",
-           liveUrl: "",
+           liveUrl: "https://www.proximarket.com.ar/",
          },
          kioto: {
            title: "Kioto Indu Ecommerce",
            description:
              "Full-stack project integrating React.js (frontend), Node.js (backend), MongoDB (database), Zustand (state management), and CI/CD. Complete ecommerce platform with product catalog, shopping cart, and checkout using Galio Pay. Ready for production.",
            githubUrl: "https://github.com/christianToscano96/kioto-indu",
-           liveUrl: "",
+           liveUrl: "https://kioto-ecomerce.vercel.app/",
          },
       },
       footer: {

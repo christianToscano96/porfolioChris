@@ -1,21 +1,19 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   FaReact,
   FaJs,
   FaNodeJs,
-  FaDocker,
   FaDatabase,
-  FaMobile,
-  FaBrain,
   FaExternalLinkAlt,
   FaGithub,
   FaImage,
   FaCube,
+  FaShoppingBag,
 } from "react-icons/fa";
-import { SiTypescript } from "react-icons/si";
+import { SiNextdotjs, SiPostgresql } from "react-icons/si";
 import kiotoImg from "../assets/kioto.png";
-import kiotoVideo from "../assets/kioto-video.mp4";
+import proxiDesktopImg from "../assets/proxi-desktop.png";
+import proxiMobileImg from "../assets/proxi-mobile.png";
 
 const Projects = () => {
   const { t } = useTranslation();
@@ -23,32 +21,24 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: t("projects.gymNightclub.title"),
-      description: t("projects.gymNightclub.description"),
+      title: t("projects.proxi.title"),
+      description: t("projects.proxi.description"),
       image: null,
-      video: null,
-      technologies: ["React Native", "Nest.js", "Docker", "TypeScript", "MongoDB"],
+      gallery: { desktop: proxiDesktopImg, mobile: proxiMobileImg },
+      technologies: ["Next.js", "Node.js", "PostgreSQL"],
       githubUrl: "",
-      liveUrl: "",
+      liveUrl: "https://www.proximarket.com.ar/",
     },
     {
       id: 2,
       title: t("projects.kioto.title"),
       description: t("projects.kioto.description"),
       image: kiotoImg,
-      video: kiotoVideo,
-        technologies: ["React.js", "Node.js", "MongoDB", "Zustand", "Galio Pay", "CI/CD"],
+      technologies: ["React.js", "Node.js", "MongoDB", "Zustand", "Galio Pay", "CI/CD"],
       githubUrl: "https://github.com/christianToscano96/kioto-indu",
-      liveUrl: "",
+      liveUrl: "https://kioto-ecomerce.vercel.app/",
     },
   ];
-
-  const [videoErrors, setVideoErrors] = useState({});
-
-  const handleVideoError = (projectId) => {
-    console.error(`Video failed to load for project ${projectId}`);
-    setVideoErrors((prev) => ({ ...prev, [projectId]: true }));
-  };
 
   return (
     <section id="proyectos" className="projects-section">
@@ -61,7 +51,7 @@ const Projects = () => {
               className="project-item fade-in"
               style={{ transitionDelay: `${index * 0.15}s` }}
             >
-              <div className="project-header">
+              <div className={`project-header ${!project.image ? "project-header-full" : ""}`}>
                 <div className="project-info">
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-description">{project.description}</p>
@@ -107,38 +97,36 @@ const Projects = () => {
                   </div>
                 )}
               </div>
-              {project.video && (
-                <div className="project-video-section">
-                  <div className="video-container">
-                    {!videoErrors[project.id] ? (
-                      <video
-                        className="project-video-full"
-                        controls
-                        preload="metadata"
-                        poster={project.image || undefined}
-                        onError={() => handleVideoError(project.id)}
-                      >
-                        <source src={project.video} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    ) : (
-                      <div className="video-error-fallback">
-                        <FaImage className="error-icon" />
-                        <p>Video unavailable</p>
-                        <a
-                          href={project.video}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="video-direct-link"
-                        >
-                          Open video in new tab
-                        </a>
-                      </div>
-                    )}
+              {project.gallery && (
+                <div className="project-gallery">
+                  <img
+                    src={project.gallery.desktop}
+                    alt={`${project.title} - desktop`}
+                    className="project-gallery-desktop"
+                  />
+                  <div className="project-gallery-phone">
+                    <img
+                      src={project.gallery.mobile}
+                      alt={`${project.title} - mobile`}
+                      className="project-gallery-mobile"
+                    />
                   </div>
                 </div>
               )}
-              {!project.video && !project.image && (
+              {project.liveUrl && (
+                <div className="project-url-section">
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-url-card"
+                  >
+                    <FaExternalLinkAlt className="project-url-icon" />
+                    <span className="project-url-text">{project.liveUrl}</span>
+                  </a>
+                </div>
+              )}
+              {!project.liveUrl && !project.image && (
                 <div className="project-placeholder-section">
                   <div className="placeholder-content">
                     <FaImage className="placeholder-icon-lg" />
@@ -155,17 +143,14 @@ const Projects = () => {
 };
 
 const techIcons = {
-  "React Native": <FaMobile />,
-  "Nest.js": <FaNodeJs />,
+  "Next.js": <SiNextdotjs />,
   "Node.js": <FaNodeJs />,
-  Docker: <FaDocker />,
-  TypeScript: <SiTypescript />,
+  PostgreSQL: <SiPostgresql />,
   MongoDB: <FaDatabase />,
   "React.js": <FaReact />,
-  "Galio Pay": <FaBrain />,
-  "Zustand": <FaCube />,
-  "CI/CD": <FaDocker />,
-  "Payment Integration": <FaJs />,
+  "Galio Pay": <FaShoppingBag />,
+  Zustand: <FaCube />,
+  "CI/CD": <FaJs />,
 };
 
 export default Projects;

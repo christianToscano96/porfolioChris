@@ -12,7 +12,6 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
-import { LiaExternalLinkAltSolid } from "react-icons/lia";
 
 const techIcons = {
   React: <FaReact />,
@@ -69,20 +68,6 @@ const Experience = () => {
       logo: aptlyImg,
       isCurrent: false,
     },
-    {
-      id: 3,
-      date: t("experience.freelance.date"),
-      duration: t("experience.freelance.duration"),
-      title: t("experience.freelance.title"),
-      company: t("experience.freelance.company"),
-      location: t("experience.freelance.location"),
-      description: t("experience.freelance.description"),
-      highlights: t("experience.freelance.highlights", { returnObjects: true }),
-      technologies: ["React Native", "Mongo", "TypeScript", "Docker", "Node.js", "Claude AI"],
-      logo: null,
-      isCurrent: true,
-      portfolioUrl: t("experience.freelance.portfolioUrl"),
-    },
   ];
 
   return (
@@ -132,19 +117,6 @@ const Experience = () => {
                     </span>
                   ))}
                 </div>
-                {exp.portfolioUrl && (
-                  <div className="portfolio-link">
-                    <a
-                      href={exp.portfolioUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="portfolio-link-anchor"
-                    >
-                      <LiaExternalLinkAltSolid />
-                      <span>Ver portfolio de proyectos</span>
-                    </a>
-                  </div>
-                )}
               </div>
             </div>
           ))}
